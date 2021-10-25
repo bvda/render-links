@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'renderLink';
+  form = new FormGroup({ 
+    text: new FormControl('')
+  })
+
+  messages: string[] = []
+
+  onSubmit() {
+    this.messages.push(this.form.value.text)
+  }
 }
